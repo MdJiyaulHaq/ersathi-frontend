@@ -22,7 +22,7 @@ class OnBoardingPage3 extends StatelessWidget{
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Text("Track yout Progress", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white)),
+                  Text("Track your Progress", style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white)),
                   SizedBox(height: 20,),
                   Text("Monitor your improvement", style: TextStyle(fontSize: 12, color: Colors.white),),
                   Text("and stay motivated every day",

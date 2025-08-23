@@ -1,8 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:er_sathi/splashscreen/splash.dart';
+import 'package:provider/provider.dart';
+import 'package:er_sathi/db_helper/auth_provider.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(
+    MultiProvider(
+        providers: [
+          ChangeNotifierProvider(create: (_) => ApiService()),
+        ],
+    child: MyApp(),
+    )
+  );
 }
 
 class MyApp extends StatelessWidget {
