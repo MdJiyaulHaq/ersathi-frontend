@@ -3,6 +3,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:er_sathi/onBoarding/boarding1.dart';
 import 'package:er_sathi/onBoarding/boarding2.dart';
 import 'package:er_sathi/onBoarding/boarding3.dart';
+import 'package:er_sathi/loginsignupscreen/login.dart';
+import 'package:er_sathi/loginsignupscreen/signup.dart';
+import 'package:er_sathi/onBoarding/onboardingafterlogin.dart';
 
 class OnBoardingScreen extends StatelessWidget{
   @override
@@ -37,7 +40,7 @@ class OnBoardingScreen extends StatelessWidget{
                       controller.animateTo(controller.index +1);
                     }
                     else{
-                      print("OnBoarding Finished!");
+                      Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) => SignUpPage()));
                     }
                   }, child: Row(
                     mainAxisSize: MainAxisSize.min,
