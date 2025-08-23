@@ -22,7 +22,7 @@ class ApiService with ChangeNotifier{
   Future<Map<String, dynamic>> signup(String username, String email, String password, String confirmPassword) async{
     AppLogger.debug("Sending POST request to signup......");
     final response = await http.post(
-        Uri.parse("$baseUrl/signup/"),
+        Uri.parse("$baseUrl/auth/users/"),
         headers: {"Content-Type": "application/json"},
         body: jsonEncode({
           "username": username,
@@ -43,7 +43,7 @@ class ApiService with ChangeNotifier{
 
   Future<Map<String, dynamic>> login(String email, String password) async {
     final response = await http.post(
-      Uri.parse("$baseUrl/login/"),
+      Uri.parse("$baseUrl/auth/users/"),
       headers: {"Content-Type": "application/json"},
       body: jsonEncode({
         "email": email,
