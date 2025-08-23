@@ -8,7 +8,7 @@ import 'package:er_sathi/utils/logger.dart';
 
 
 class ApiService with ChangeNotifier{
-  final String baseUrl = "http://192.168.18.9:8000/api/v1";
+  final String baseUrl = "http://your_localhost_url/api/v1";
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   Map<String, dynamic>? _userProfile;
@@ -108,28 +108,6 @@ class ApiService with ChangeNotifier{
       return false;
     }
   }
-  //
-  // Future<Map<String, dynamic>> getUserProfile() async{
-  //   final token = await _getToken();
-  //   if(token == null){
-  //     throw Exception("no authentication token found");
-  //   }
-  //
-  //   final response = await http.get(
-  //     Uri.parse("$baseUrl/profile/"),
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'Authorization': 'Bearer $token',
-  //     },
-  //   );
-  //
-  //   if(response.statusCode == 200){
-  //     return jsonDecode(response.body);
-  //   }
-  //   else{
-  //     throw Exception("Failed to load profile:, ${response.body}");
-  //   }
-  // }
 
   Future<void> fetchUserProfile() async {
     try{
@@ -153,76 +131,3 @@ class ApiService with ChangeNotifier{
     }
   }
 }
-
-
-
-
-
-//
-//
-// class AuthProvider extends ChangeNotifier{
-//   final DatabaseHelper _dbHelper = DatabaseHelper.instance;
-//
-//   bool _isLoading = false;
-//   bool get isLoading => _isLoading;
-//
-//   String _errorMessage = '';
-//   String get errorMessage => _errorMessage;
-//
-//   Future<bool> login(String email, String password) async{
-//     _isLoading = true;
-//     notifyListeners();
-//
-//     try{
-//       final user = await _dbHelper.getUser(email);
-//       if(user ==null || user['password'] != password){
-//         _errorMessage = "Invalid email or password";
-//         _isLoading = false;
-//         notifyListeners();
-//         return false;
-//       }
-//
-//       _isLoading = false;
-//       _errorMessage = '';
-//       notifyListeners();
-//       return true;
-//     }
-//     catch(e){
-//       _errorMessage = "An error occurred during login";
-//       _isLoading = false;
-//       notifyListeners();
-//       return false;
-//     }
-//   }
-//
-//   Future<bool> signup(String name, String email, String password) async{
-//     _isLoading = true;
-//     notifyListeners();
-//
-//     try{
-//       final existingUser = await _dbHelper.getUser(email);
-//       if(existingUser != null){
-//         _errorMessage = "Email already exists";
-//         _isLoading = false;
-//         notifyListeners();
-//         return false;
-//       }
-//       await _dbHelper.createUser(name, email, password);
-//       _isLoading = false;
-//       _errorMessage= '';
-//       notifyListeners();
-//       return true;
-//     }
-//     catch(e){
-//       _errorMessage = "An error occurred during signup";
-//       _isLoading = false;
-//       notifyListeners();
-//       return false;
-//     }
-//   }
-//   void clearError(){
-//     _errorMessage = '';
-//     notifyListeners();
-//   }
-// }
-//
