@@ -8,7 +8,7 @@ import 'package:er_sathi/utils/logger.dart';
 
 
 class ApiService with ChangeNotifier{
-  final String baseUrl = "http://your_localhost_url/api/v1";
+  final String baseUrl = "http://150.230.12.113:8000/";
   final FlutterSecureStorage _storage = const FlutterSecureStorage();
 
   Map<String, dynamic>? _userProfile;
